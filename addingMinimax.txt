@@ -1,0 +1,20 @@
+2) Define the evaluation (score) for terminal states
+3) Generate legal moves
+4) Write the Minimax recurrence
+
+5) Choose the actual move
+At the top level, iterate over each legal move:
+Apply the move,
+Call the Minimax function (which returns a score),
+Undo the move,
+Keep the move with the best score for the root player.
+
+extra)
+alpha beta pruning: 
+Transposition table (memo): Cache scores by a hash of the board + player to move.
+Symmetry reduction: Normalize boards under rotations/reflections so symmetric positions share one cache entry.
+Perspective errors: Always return scores from the root player’s point of view (not the side to move).
+Turn mix-ups: Ensure you correctly alternate players at each play.
+Terminal detection timing: Check for wins before declaring draw; check terminal before expanding children.
+Move lifecycle: If you mutate the board, always undo after evaluating a child (or use copies consistently).
+Depth handling: For Tic-Tac-Toe you can search the full tree; depth limits aren’t needed unless you’re experimenting.
